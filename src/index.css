@@ -7,7 +7,8 @@
 :root{
     --primary-color: #f80;
     --secondary-color: #00498d;
-    --dark-primary-color: #00315f;
+    --dark-primary-color: #e07800;
+    --dark-secondary-color: #00315f;
     --light-color: #e9e9e9;
     --dark-color: #2c2c2c;
 }
@@ -27,3 +28,4 @@ button{
     border: none;
     cursor: pointer;
 }
+
