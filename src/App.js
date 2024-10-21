@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Headerr from "./components/Headerr";
 import ProductsList from "./components/ProductsList";
+import ExclusiveSection from "./components/ExclusiveSection";
+import TestimonialsList from "./components/TestimonialsList";
 
 import Styles from './App.module.css';
 
@@ -44,6 +46,8 @@ function App() {
             </div>
           </div>
         </main>
+        <ExclusiveSection />
+        <TestimonialsList />
       </div>
     </Router>
   );

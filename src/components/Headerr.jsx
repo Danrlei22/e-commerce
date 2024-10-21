@@ -5,7 +5,7 @@ import Styles from './Headerr.module.css'
 import { Link } from 'react-router-dom'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import headerImage from '../assets/img/header-image.jpg'
+import headerImage from '../assets/header-image.png'
 
 function Headerr() {
     return (
