@@ -5,6 +5,7 @@ import Headerr from "./components/Headerr";
 import ProductsList from "./components/ProductsList";
 import ExclusiveSection from "./components/ExclusiveSection";
 import TestimonialsList from "./components/TestimonialsList";
+import Footer from "./components/Footer";
 
 import Styles from './App.module.css';
 
@@ -48,6 +49,7 @@ function App() {
         </main>
         <ExclusiveSection />
         <TestimonialsList />
+        <Footer />
       </div>
     </Router>
   );
