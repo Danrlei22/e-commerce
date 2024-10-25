@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Styles from './NavBar.module.css'
 
-function NavBar() {
+function NavBar( { setShowSideBarCart, selectedProduct } ) {
 
     const [show, setShow] = useState(false);
 
@@ -39,9 +39,9 @@ function NavBar() {
                         <input type="search" placeholder="Pesquisar" />
                         <FontAwesomeIcon icon={faSearch} />
                     </div>
-                    <button className={Styles.shoppingCart}>
+                    <button className={Styles.shoppingCart} onClick={() => setShowSideBarCart(true)}>
                         <FontAwesomeIcon icon={faShoppingCart} />
-                        <div className={Styles.productCount}>0</div>
+                        <div className={Styles.productCount}>{selectedProduct.length}</div>
                     </button>
                     <button className={Styles.menuButton} onClick={() => setShow(!show)}>
                         <FontAwesomeIcon icon={faBars} />

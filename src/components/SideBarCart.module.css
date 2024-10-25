@@ -1,0 +1,63 @@
+.sidebarCart {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  padding: 2em;
+  box-shadow: 5px 5px 50px var(--dark-color);
+  overflow-y: auto;
+  scrollbar-width: none;
+  z-index: 2;
+  /*display: none;*/
+  transform: translateX(100%); /* Inicialmente escondido */
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebarCart.show {
+    transform: translateX(0); /* Visível */
+  }
+
+.sidebarCart::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebarCart .top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.sidebarCart .top button {
+  background-color: var(--dark-color);
+  color: #fff;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+}
+
+.btnIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.8em;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.2s;
+}
+
+.btnIcon {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btnIcon:hover {
+  background-color: var(--dark-primary-color);
+}
+
+.totalContainer {
+  margin-block: 1em;
+}

@@ -1,0 +1,43 @@
+.sidebarProduct{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--light-color);
+    justify-content: space-between;
+    padding: 0.5em;
+    gap: 0.5em;
+}
+
+.sidebarProduct button {
+    width: 1em;
+    height: 1em;
+    background-color: var(--dark-color);
+    color: #fff;
+    border-radius: 50%;
+}
+
+.sidebarProduct img{
+    height: 75px;
+
+}
+
+.leftSide{
+    display: flex;
+    gap: 0.5em;
+}
+
+.leftSide .details{
+    display: flex;
+    flex-direction: column;
+}
+
+.leftSide .details p{
+    font-size: 0.8em;
+}
+
+.leftSide input {
+    width: 55px;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    padding: 0.2em;
+}
+
