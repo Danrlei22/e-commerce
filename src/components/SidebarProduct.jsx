@@ -15,8 +15,26 @@ function SidebarProduct({
   removeProductFromCart,
   addToCartTotal,
 }) {
+
+  console.log("SidebarProduct - addToCartTotal:", addToCartTotal);
+
   const [quantity, setQuantity] = useState(1);
   const [priceSum, setPriceSum] = useState(price);
+
+  const handleQuantityChange = (e) => {
+    const newQuantity = Number(e.target.value);
+    setQuantity(newQuantity);
+
+    const newPriceSum = newQuantity * price;
+
+    if (typeof addToCartTotal === "function") {
+      addToCartTotal(newPriceSum - priceSum);
+    } else {
+      console.error("addToCartTotal não é uma função:", addToCartTotal);
+    }
+
+    setPriceSum(newPriceSum);
+  };
 
   return (
     <div className={Styles.sidebarProduct}>
@@ -25,7 +43,9 @@ function SidebarProduct({
           className={Styles.removeProductBtn}
           onClick={() => {
             removeProductFromCart(id);
-            addToCartTotal(-priceSum);
+            if (typeof addToCartTotal === "function") {
+              addToCartTotal(-priceSum);
+            }
           }}
         >
           <FontAwesomeIcon icon={faXmark} />
@@ -39,11 +59,7 @@ function SidebarProduct({
             min={1}
             max={100}
             value={quantity}
-            onChange={(e) => {
-              setQuantity(e.target.value);
-              addToCartTotal(e.target.value * price - priceSum);
-              setPriceSum(price * e.target.value);
-            }}
+            onChange={handleQuantityChange}
           />
 
           {priceSum > price && (

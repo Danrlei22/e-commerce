@@ -6,7 +6,15 @@ import { faCartShopping, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
 
 import React from "react";
 
-function Product({ id, image, name, price, rating, addProductToCart }) {
+function Product({ id, image, name, price, rating, addProductToCart, addToCartTotal }) {  
+
+  console.log("Product - addToCartTotal:", addToCartTotal);
+
+  const handleAddCart = () => {
+    addProductToCart(id);
+    addToCartTotal(price);
+  }
+
   return (
     <div className={Styles.product}>
       <img src={image} alt={name} />
@@ -21,7 +29,7 @@ function Product({ id, image, name, price, rating, addProductToCart }) {
           <FontAwesomeIcon icon={faMoneyBill} />
         </Link>
         <button
-          onClick={() => addProductToCart(id)}
+          onClick={handleAddCart}
           className={Styles.addToCartBtn}
         >
           <span>Adicionar ao Carrinho</span>

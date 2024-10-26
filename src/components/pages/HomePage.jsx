@@ -5,7 +5,10 @@ import ExclusiveSection from "../../components/ExclusiveSection";
 import TestimonialsList from "../../components/TestimonialsList";
 import Headerr from "../../components/Headerr";
 
-function HomePage({ products, addProductToCart }) {
+function HomePage({ products, addProductToCart, addToCartTotal }) {
+
+  console.log("HomePage - addToCartTotal:", addToCartTotal);
+
   return (
     <>
       <Headerr />
@@ -19,6 +22,7 @@ function HomePage({ products, addProductToCart }) {
           <ProductsList
             addProductToCart={addProductToCart}
             products={products}
+            addToCartTotal={addToCartTotal}
           />
         </div>
       </div>

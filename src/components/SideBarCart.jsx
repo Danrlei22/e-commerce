@@ -16,6 +16,9 @@ function SideBarCart({
   removeProductFromCart,
   addToCartTotal,
 }) {
+
+  console.log("SidebarCart - addToCartTotal:", addToCartTotal);
+
   return (
     <aside
       className={`${Styles.sidebarCart} ${showSideBarCart ? Styles.show : ""}`}
@@ -27,7 +30,7 @@ function SideBarCart({
         </button>
       </div>
 
-      <div className={Styles.sidebarProductsList}>
+      <div className={Styles.sidecarProductsList}>
         {selectedProducts.map((product) => (
           <SidebarProduct
             key={product.id}

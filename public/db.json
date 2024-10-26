@@ -83,6 +83,27 @@
       "image": "./img/products/product-12.png",
       "rating": 5,
       "price": 450000
-    }
+    },
+    {
+      "id": 13,
+      "name": "Notebook ASUS Laptop X543UA-GQ3154T",
+      "image": "./img/products/product-13.png",
+      "rating": 5,
+      "price": 577668
+    },
+    {
+      "id": 14,
+      "name": "Notebook Dell Latitude 7390",
+      "image": "./img/products/product-14.png",
+      "rating": 5,
+      "price": 199999
+    },
+    {
+      "id": 15,
+      "name": "Notebook Dell I7-7700HQ",
+      "image": "./img/products/product-15.png",
+      "rating": 5,
+      "price": 849000
+    }    
   ]
 }

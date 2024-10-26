@@ -1,7 +1,7 @@
 import ProductsList from "../ProductsList";
 import Styles from "./ProductsPage.module.css";
 
-function ProductsPage({ products, addProductToCart }) {
+function ProductsPage({ products, addProductToCart, addToCartTotal }) {
   return (
     <div className={Styles.pageInnerContent}>
       <div className={Styles.sectionTitle}>
@@ -9,7 +9,11 @@ function ProductsPage({ products, addProductToCart }) {
         <div className={Styles.underline}></div>
       </div>
       <div className={Styles.mainContent}>
-        <ProductsList products={products} addProductToCart={addProductToCart} />
+        <ProductsList
+          products={products}
+          addProductToCart={addProductToCart}
+          addToCartTotal={addToCartTotal}
+        />
       </div>
     </div>
   );

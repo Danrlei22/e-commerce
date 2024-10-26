@@ -14,7 +14,8 @@ function App() {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
 
-  const addToCartTotal = (value) => setCartTotal(cartTotal + value);
+  const addToCartTotal = (value) =>
+    setCartTotal((prevTotal) => prevTotal + value);
 
   useEffect(() => {
     fetch("/db.json")
@@ -23,20 +24,28 @@ function App() {
   }, []);
 
   const addProductToCart = (id) => {
-    const productToAdd = products.filter((product) => product.id === id)[0];
+    const productToAdd = products.find((product) => product.id === id);
 
-    if (selectedProducts.includes(productToAdd)){
-      return alert(`O item ${productToAdd.name} ja foi adicionado ao carrinho.`);
-    } ;
+    if (!productToAdd) {
+      console.log(`Produto com id ${id} não encontrado.`);
+      return alert(`Produto com id ${id} não encontrado.`);
+    }
 
-    setSelectedProducts(selectedProducts.concat(productToAdd));
-    setCartTotal(cartTotal + productToAdd.price);
+    if (selectedProducts.includes(productToAdd)) {
+      return alert(
+        `O item ${productToAdd.name} ja foi adicionado ao carrinho.`
+      );
+    }
+
+    setSelectedProducts((prev) => [...prev, productToAdd]);
+    setCartTotal((prevTotal) => prevTotal + productToAdd.price);
   };
 
   const removeProductFromCart = (id) => {
     const newSelectedProducts = selectedProducts.filter(
-      (product) => product.id !== id);
-      setSelectedProducts(newSelectedProducts);
+      (product) => product.id !== id
+    );
+    setSelectedProducts(newSelectedProducts);
   };
 
   return (
@@ -47,17 +56,21 @@ function App() {
           setShowSideBarCart={setShowSideBarCart}
         />
         <SideBarCart
-        removeProductFromCart={removeProductFromCart}
-        cartTotal={cartTotal}
-        selectedProducts={selectedProducts}
-        setShowSideBarCart={setShowSideBarCart}
-        showSideBarCart={showSideBarCart}
-      />
+          removeProductFromCart={removeProductFromCart}
+          cartTotal={cartTotal}
+          selectedProducts={selectedProducts}
+          setShowSideBarCart={setShowSideBarCart}
+          showSideBarCart={showSideBarCart}
+          addToCartTotal={addToCartTotal}
+        />
         <main>
           <Routes>
             <Route
               path="/"
               element={
+
+                <>
+                {console.log("App - addToCartTotal:", addToCartTotal)}
                 <HomePage
                   addToCartTotal={addToCartTotal}
                   removeProductFromCart={removeProductFromCart}
@@ -67,12 +80,19 @@ function App() {
                   setShowSideBarCart={setShowSideBarCart}
                   showSideBarCart={showSideBarCart}
                   cartTotal={cartTotal}
-                />
+                /></>
+
               }
             />
             <Route
               path="/products"
-              element={<ProductsPage products={products} />}
+              element={
+                <ProductsPage
+                  products={products}
+                  addProductToCart={addProductToCart}
+                  addToCartTotal={addToCartTotal}
+                />
+              }
             />
           </Routes>
         </main>

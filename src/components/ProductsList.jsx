@@ -4,7 +4,11 @@ import Product from "./Product";
 
 import React from "react";
 
-function ProductsList({ products, addProductToCart }) {
+function ProductsList({ products, addProductToCart, addToCartTotal }) {
+
+
+  console.log("ProductsList - addToCartTotal:", addToCartTotal);
+
   return (
     <div className={Styles.productList}>
       {products.map((product) => (
@@ -12,6 +16,7 @@ function ProductsList({ products, addProductToCart }) {
           key={product.id}
           {...product}
           addProductToCart={addProductToCart}
+          addToCartTotal={addToCartTotal}
         />
       ))}
     </div>
